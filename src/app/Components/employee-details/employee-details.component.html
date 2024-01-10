@@ -1,0 +1,11 @@
+<div *ngIf="selectedEmployee">
+    <h3>Employee Details</h3>
+    <ul>
+        <li>ID : {{selectedEmployee.empId}}</li>
+        <li>Name : {{ selectedEmployee.empName   }}</li>
+        <li>Joining Date : {{ selectedEmployee.JoiningDate}}</li>
+    </ul>
+</div>
+<div *ngIf="!selectedEmployee">
+    <p>Loading employee details...</p>
+</div>
