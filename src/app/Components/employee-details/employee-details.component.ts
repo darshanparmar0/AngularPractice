@@ -16,10 +16,12 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, public empService: EmployeeService) { }
   selectedEmployee: Employee | undefined;
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const employeeId = params['employeeId']
-      this.selectedEmployee = this.empService.getEmployeebyId(employeeId);
-    })
+    // this.route.params.subscribe((params) => {
+    //   const employeeId = params['employeeId']
+    //   this.selectedEmployee = this.empService.getEmployeebyId(employeeId);
+    // })
+    const employeeId = parseInt(this.route.snapshot.paramMap.get('employeeId')!);
+    this.selectedEmployee = this.empService.getEmployeebyId(employeeId);
   }
 
 }
