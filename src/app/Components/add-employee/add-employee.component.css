@@ -1,0 +1,13 @@
+form label{
+    text-transform: uppercase;
+    color:  rgb(32, 31, 31);
+}
+
+form input{
+    font-weight: 500;
+}
+
+form input::placeholder{
+    color: #c0bdbd;
+    font-weight: 300;
+}

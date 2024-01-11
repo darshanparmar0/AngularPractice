@@ -13,8 +13,7 @@ import { EmployeeService } from '../../Services/employee.service';
 })
 export class EmployeeListComponent {
   constructor(public empService: EmployeeService) { }
-  employees: Employee[] = [];
   ngOnInit(): void {
-    this.employees = this.empService.getEmployees()
+    this.empService.getEmployees()
   }
 }

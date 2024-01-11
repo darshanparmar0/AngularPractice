@@ -1,11 +1,11 @@
 <div *ngIf="selectedEmployee">
     <h3>Employee Details</h3>
     <ul>
-        <li>ID : {{selectedEmployee.empId}}</li>
-        <li>Name : {{ selectedEmployee.empName   }}</li>
-        <li>Joining Date : {{ selectedEmployee.JoiningDate}}</li>
+        <li>ID : {{selectedEmployee.employeeId}}</li>
+        <li>Name : {{ selectedEmployee.employeeName   }}</li>
+        <li>Joining Date : {{ selectedEmployee.joiningDate}}</li>
     </ul>
 </div>
-<div *ngIf="!selectedEmployee">
+<div *ngIf="!empService.employee">
     <p>Loading employee details...</p>
 </div>

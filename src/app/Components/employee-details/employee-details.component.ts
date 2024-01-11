@@ -21,7 +21,14 @@ export class EmployeeDetailsComponent implements OnInit {
     //   this.selectedEmployee = this.empService.getEmployeebyId(employeeId);
     // })
     const employeeId = parseInt(this.route.snapshot.paramMap.get('employeeId')!);
-    this.selectedEmployee = this.empService.getEmployeebyId(employeeId);
+    this.empService.getEmployeebyId(employeeId).subscribe({
+      next: res => {
+        this.selectedEmployee = res
+        console.log('from empoyee detais ::',res)
+      },
+      error:err=>{
+        console.log('from emp detils :: ',err)
+      }
+    });
   }
-
 }

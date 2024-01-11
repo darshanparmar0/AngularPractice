@@ -1,5 +1,7 @@
 export class Employee {
-    empId : number = 0
-    empName : string = ''
-    JoiningDate:string = ''
+    employeeId: number = 0
+    employeeName: string = ''
+    employeeAge: number = 0
+    employeePosition: string = ''
+    joiningDate: string = ''
 }
