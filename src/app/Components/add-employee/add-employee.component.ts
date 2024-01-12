@@ -1,27 +1,41 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../../Services/employee.service';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
   standalone: true,
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css'
 })
 export class AddEmployeeComponent {
-  constructor(public empService: EmployeeService) { }
+  employeeForm : FormGroup;
 
-  onSubmit(form: NgForm) {
-    if(form.valid){
-      this.empService.addEmployee().subscribe({
+  constructor(private formBuilder:FormBuilder, public empService: EmployeeService) {
+    this.employeeForm = formBuilder.group({
+      employeeName:['',Validators.required],
+      employeeAge: ['', Validators.required],
+      employeePosition: ['', Validators.required],
+      joiningDate: ['', Validators.required],
+    })
+   }
+
+  onSubmit() {
+    if(this.employeeForm.valid){
+      const employeeData = this.employeeForm.value;
+      this.empService.addEmployee(employeeData).subscribe({
         next:data=>{
+          debugger
           console.log(data)
+          this.employeeForm.reset()
+        },
+        error:err=>{
+          console.log(err)
         }
       })
-      form.form.reset()
     }else{
-      console.log('provide valid data')
+      console.log('invalid form data...');
     }
   }
 }

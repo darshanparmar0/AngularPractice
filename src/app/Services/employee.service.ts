@@ -26,7 +26,7 @@ export class EmployeeService {
     return this.http.get<Employee>(this.baseUrl + 'GetEmployeeById/'+empId)
   }
 
-  addEmployee() {
-   return this.http.post(this.baseUrl + 'AddEmployee', this.empData)
+  addEmployee(employeeData:Employee) {
+   return this.http.post(this.baseUrl + 'AddEmployee', employeeData)
   }
 }

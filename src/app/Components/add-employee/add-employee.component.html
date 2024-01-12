@@ -1,33 +1,33 @@
 <div class="container mt-5 ">
     <div class="row ">
         <div class="col-6  offset-3">
-            <form #form="ngForm" (submit)="onSubmit(form)" novalidate autocomplete="off">
+            <form [formGroup]="employeeForm" (submit)="onSubmit()" novalidate autocomplete="off">
                 <input type="hidden" name="employeeId" [value]="empService.empData.employeeId" />
                 <div class="mb-3">
                     <label>Employee Name</label>
-                    <input class="form-control form-control-lg" placeholder="Employee Name" name="employeeName"
-                        #employeeName="ngModel" [(ngModel)]="empService.empData.employeeName" required />
+                    <input class="form-control form-control-lg" placeholder="Employee Name"
+                        formControlName="employeeName" required />
                 </div>
                 <div class="mb-3">
                     <label>Age</label>
-                    <input class="form-control form-control-lg" placeholder="Age" name="employeeAge"
-                        #employeeAge="ngModel" [(ngModel)]="empService.empData.employeeAge" required />
+                    <input class="form-control form-control-lg" placeholder="Age" formControlName="employeeAge" />
                 </div>
                 <div class="row">
                     <div class="mb-3 col-6">
                         <label>Position</label>
-                        <input class="form-control form-control-lg" placeholder="Position" name="employeePosition"
-                            #employeePosition="ngModel" [(ngModel)]="empService.empData.employeePosition" required />
+                        <input class="form-control form-control-lg" placeholder="Position"
+                            formControlName="employeePosition" />
                     </div>
                     <div class="mb-3 col-6">
                         <label>Joining Date</label>
-                        <input class="form-control form-control-lg" placeholder="DD/MM/YY" name="joiningDate"
-                            #joiningDate="ngModel" [(ngModel)]="empService.empData.joiningDate" required />
+                        <input class="form-control form-control-lg" placeholder="DD/MM/YY" formControlName="joiningDate"
+                            required />
                     </div>
                 </div>
 
                 <div class="d-grid">
-                    <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                    <button class="btn btn-lg btn-success" type="submit"
+                        [disabled]="employeeForm.invalid">Submit</button>
                 </div>
             </form>
         </div>
