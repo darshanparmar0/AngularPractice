@@ -31,4 +31,7 @@ export class EmployeeDetailsComponent implements OnInit {
       }
     });
   }
+
+
+  
 }

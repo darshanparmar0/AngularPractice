@@ -12,8 +12,25 @@ import { EmployeeService } from '../../Services/employee.service';
   styleUrl: './employee-list.component.css'
 })
 export class EmployeeListComponent {
-  constructor(public empService: EmployeeService) { }
+  constructor(public empService: EmployeeService, private route: Router) { }
   ngOnInit(): void {
     this.empService.getEmployees()
+  }
+
+  editEmployee(id: number) {
+    this.route.navigate(['EditEmployee/' + id])
+  }
+
+  deleteEmployee(id: number) {
+    this.empService.deleteEmployee(id).subscribe({
+      next:(res)=>{
+        this.empService.getEmployees()
+        console.log('employee deleted')
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+
   }
 }

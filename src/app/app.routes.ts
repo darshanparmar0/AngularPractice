@@ -9,5 +9,6 @@ export const routes: Routes = [
     {path:'Welcome',component:WelcomeComponent},
     {path:'Employee',component:EmployeeListComponent},
     {path:'AddEmployee',component:AddEmployeeComponent},
-    {path:'Employee/:employeeId',component:EmployeeDetailsComponent}
+    {path:'Employee/:employeeId',component:EmployeeDetailsComponent},
+    {path:'EditEmployee/:employeeId',component:AddEmployeeComponent}
 ];

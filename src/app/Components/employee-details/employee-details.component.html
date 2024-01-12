@@ -1,11 +1,15 @@
-<div *ngIf="selectedEmployee">
-    <h3>Employee Details</h3>
-    <ul>
-        <li>ID : {{selectedEmployee.employeeId}}</li>
-        <li>Name : {{ selectedEmployee.employeeName   }}</li>
-        <li>Joining Date : {{ selectedEmployee.joiningDate}}</li>
-    </ul>
-</div>
-<div *ngIf="!empService.employee">
-    <p>Loading employee details...</p>
+<div class="container mt-3 ">
+    <div *ngIf="selectedEmployee">
+        <h3>Employee Details</h3>
+        <ul>
+            <li>ID : {{selectedEmployee.employeeId}}</li>
+            <li>Name : {{ selectedEmployee.employeeName }}</li>
+            <li>Age : {{selectedEmployee.employeeAge}}</li>
+            <li>Employee Position : {{selectedEmployee.employeePosition}}</li>
+            <li>Joining Date : {{ selectedEmployee.joiningDate}}</li>
+        </ul>
+    </div>
+    <div *ngIf="!empService.employee">
+        <p>Loading employee details...</p>
+    </div>
 </div>
